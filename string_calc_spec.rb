@@ -48,4 +48,14 @@ describe "String Calculator" do
 			@nums.add("//;3,5,6,\n,1").should eq 15
 		end
 	end
+
+	context "converts negatives" do
+		it "converts //;\n-1;2 to show error" do
+			@nums.add("//;\n-1;2").should eq "Negatives not allowed. [-1] is invalid."
+		end
+
+		it "converts //;3,-5,6,\n,-1 to show error" do
+			@nums.add("//;3,-5,6,\n,-1").should eq "Negatives not allowed. [-5, -1] are invalid numbers."
+		end
+	end
 end
