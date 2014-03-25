@@ -9,7 +9,7 @@ class StringCalculator
 	end
 
 	def to_int_array(string)
-		string.split(",").map { |s| s.to_i }
+		string.split(/[\n ,]+/).map { |s| s.to_i }
 	end
 
 	def add_array(array)

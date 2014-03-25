@@ -24,9 +24,18 @@ describe "String Calculator" do
 			@nums.add("1,2").should eq 3
 		end
 
-		it "converts 3,5 to 8" do
-			@nums.add("3,5").should eq 8
+		it "converts 3,5,1 to 9" do
+			@nums.add("3,5,1").should eq 9
 		end
 	end
-	
+
+	context "converts new line" do
+		it "converts 1\n2,3 to 6" do
+			@nums.add("1\n2,3").should eq 6
+		end
+
+		it "converts 3,5,6,\n,1 to 15" do
+			@nums.add("3,5,6,\n,1").should eq 15
+		end
+	end
 end
