@@ -9,7 +9,10 @@ class StringCalculator
 	end
 
 	def to_int_array(string)
-		string.split(/[\n ,]+/).map { |s| s.to_i }
+		if string.start_with?("//")
+      string.gsub!(/^[^\d]*/, '')
+    end
+		string.split(/[^\d]+/).map { |s| s.to_i }
 	end
 
 	def add_array(array)

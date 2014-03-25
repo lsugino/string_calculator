@@ -38,4 +38,14 @@ describe "String Calculator" do
 			@nums.add("3,5,6,\n,1").should eq 15
 		end
 	end
+
+	context "converts delimiters" do
+		it "converts //;\n1;2 to 3" do
+			@nums.add("//;\n1;2").should eq 3
+		end
+
+		it "converts //;3,5,6,\n,1 to 15" do
+			@nums.add("//;3,5,6,\n,1").should eq 15
+		end
+	end
 end
